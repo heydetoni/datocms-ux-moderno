@@ -2,9 +2,6 @@ import Alert from '../components/alert'
 import Footer from '../components/footer'
 import Meta from '../components/meta'
 
-import React from 'react'
-import { initGA, logPageView } from '../utils/analytics'
-
 export default function Layout({ preview, children }) {
   return (
     <>
@@ -16,21 +13,4 @@ export default function Layout({ preview, children }) {
       <Footer />
     </>
   )
-}
-
-export default class Layout extends React.Component {
-  componentDidMount() {
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-  }
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    )
-  }
 }
